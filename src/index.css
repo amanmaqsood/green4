@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  Design System for 株式会社エフ・ティー・エフ
+  Agricultural Land Management Company
+  
+  Aesthetic: Modern, calm, nature-driven, trustworthy
+  Target: Accessible for elderly users
+*/
+
+@layer base {
+  :root {
+    /* Core Nature Palette */
+    --background: 45 25% 97%;
+    --foreground: 140 15% 15%;
+
+    --card: 45 30% 99%;
+    --card-foreground: 140 15% 15%;
+
+    --popover: 45 30% 99%;
+    --popover-foreground: 140 15% 15%;
+
+    /* Primary: Forest Green - Trust & Growth */
+    --primary: 142 35% 35%;
+    --primary-foreground: 45 30% 98%;
+
+    /* Secondary: Fresh Grass Green - Vitality */
+    --secondary: 85 45% 50%;
+    --secondary-foreground: 140 15% 15%;
+
+    /* Muted: Soft sage */
+    --muted: 90 15% 92%;
+    --muted-foreground: 140 12% 40%;
+
+    /* Accent: Warm Earth Brown */
+    --accent: 30 30% 45%;
+    --accent-foreground: 45 30% 98%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 90 20% 85%;
+    --input: 90 20% 85%;
+    --ring: 142 35% 35%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --cream: 45 40% 96%;
+    --cream-dark: 40 25% 92%;
+    --earth: 30 30% 45%;
+    --earth-light: 30 25% 60%;
+    --forest: 142 35% 35%;
+    --forest-dark: 142 40% 25%;
+    --grass: 85 45% 50%;
+    --grass-light: 85 50% 70%;
+    --grass-glow: 85 55% 55%;
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -2px hsl(140 20% 20% / 0.08);
+    --shadow-card: 0 8px 30px -4px hsl(140 20% 20% / 0.1);
+    --shadow-hover: 0 12px 40px -6px hsl(140 20% 20% / 0.15);
+    
+    /* Gradients */
+    --gradient-nature: linear-gradient(135deg, hsl(142 35% 35%) 0%, hsl(85 45% 50%) 100%);
+    --gradient-cream: linear-gradient(180deg, hsl(45 25% 97%) 0%, hsl(40 25% 92%) 100%);
+    --gradient-overlay: linear-gradient(180deg, hsl(0 0% 0% / 0.4) 0%, hsl(0 0% 0% / 0.1) 50%, hsl(0 0% 0% / 0.5) 100%);
+
+    --sidebar-background: 45 25% 97%;
+    --sidebar-foreground: 140 15% 15%;
+    --sidebar-primary: 142 35% 35%;
+    --sidebar-primary-foreground: 45 30% 98%;
+    --sidebar-accent: 90 15% 92%;
+    --sidebar-accent-foreground: 140 15% 15%;
+    --sidebar-border: 90 20% 85%;
+    --sidebar-ring: 142 35% 35%;
+  }
+
+  .dark {
+    --background: 140 20% 10%;
+    --foreground: 45 30% 95%;
+    --card: 140 18% 14%;
+    --card-foreground: 45 30% 95%;
+    --popover: 140 18% 14%;
+    --popover-foreground: 45 30% 95%;
+    --primary: 85 45% 55%;
+    --primary-foreground: 140 20% 10%;
+    --secondary: 142 30% 30%;
+    --secondary-foreground: 45 30% 95%;
+    --muted: 140 15% 20%;
+    --muted-foreground: 90 15% 65%;
+    --accent: 30 25% 55%;
+    --accent-foreground: 45 30% 98%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 140 15% 22%;
+    --input: 140 15% 22%;
+    --ring: 85 45% 55%;
+    --sidebar-background: 140 20% 10%;
+    --sidebar-foreground: 45 30% 95%;
+    --sidebar-primary: 85 45% 55%;
+    --sidebar-primary-foreground: 140 20% 10%;
+    --sidebar-accent: 140 15% 20%;
+    --sidebar-accent-foreground: 45 30% 95%;
+    --sidebar-border: 140 15% 22%;
+    --sidebar-ring: 85 45% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+    line-height: 1.3;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto px-6 md:px-8 lg:px-12;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-nature {
+    background: var(--gradient-nature);
+  }
+
+  .bg-gradient-cream {
+    background: var(--gradient-cream);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-hover {
+    box-shadow: var(--shadow-hover);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
